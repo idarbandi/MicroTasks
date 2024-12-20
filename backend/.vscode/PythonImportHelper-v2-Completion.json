@@ -27,6 +27,79 @@
         "documentation": {}
     },
     {
+        "label": "Todo",
+        "importPath": "model",
+        "description": "model",
+        "isExtraImport": true,
+        "detail": "model",
+        "documentation": {}
+    },
+    {
+        "label": "motor_asynci",
+        "importPath": "motor",
+        "description": "motor",
+        "isExtraImport": true,
+        "detail": "motor",
+        "documentation": {}
+    },
+    {
+        "label": "database",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "database",
+        "description": "database",
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "collection",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_one_todo",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "fetch_all_todos",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "create_todo",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "update_todo",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "remove_todo",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
         "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -40,6 +113,14 @@
         "description": "fastapi.middleware.cors",
         "isExtraImport": true,
         "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -115,11 +196,38 @@
         "documentation": {}
     },
     {
+        "label": "client",
+        "kind": 5,
+        "importPath": "database",
+        "description": "database",
+        "peekOfCode": "client = motor_asyncio.AsyncIOMotorClient(\"mongodb://localhost:27017/\")\ndatabase = client.TodoList\ncollection = database.todo\nawait def fetch_one_todo(title):\n    document = await.collection.find_one({'title': title})\nawait def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))",
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "database",
+        "kind": 5,
+        "importPath": "database",
+        "description": "database",
+        "peekOfCode": "database = client.TodoList\ncollection = database.todo\nawait def fetch_one_todo(title):\n    document = await.collection.find_one({'title': title})\nawait def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))\n    return todos",
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "collection",
+        "kind": 5,
+        "importPath": "database",
+        "description": "database",
+        "peekOfCode": "collection = database.todo\nawait def fetch_one_todo(title):\n    document = await.collection.find_one({'title': title})\nawait def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))\n    return todos\nasync def create_todo(todo):",
+        "detail": "database",
+        "documentation": {}
+    },
+    {
         "label": "pong",
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}",
+        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}\n@app.get(\"/api/todo\")\nasync def get_todo():\n    return 1\n@app.get(\"/api/todo{id}\")\nasync def get_todo_by_id(id):\n    return 1\n@app.post(\"/api/todo/\")\nasync def post_todo():",
         "detail": "main",
         "documentation": {}
     },
@@ -128,7 +236,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI()\norigins = [\"https://localhost:3000\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n@app.get(\"/\")",
+        "peekOfCode": "app = FastAPI()\nfrom database import (\n    fetch_one_todo,\n    fetch_all_todos,\n    create_todo,\n    update_todo,\n    remove_todo,\n)\norigins = [\"https://localhost:3000\"]\napp.add_middleware(",
         "detail": "main",
         "documentation": {}
     },
@@ -139,6 +247,15 @@
         "description": "main",
         "peekOfCode": "origins = [\"https://localhost:3000\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n@app.get(\"/\")\ndef pong():",
         "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "kind": 6,
+        "importPath": "models",
+        "description": "models",
+        "peekOfCode": "class Todo(BaseModel):\n    title: str\n    description: str",
+        "detail": "models",
         "documentation": {}
     }
 ]
