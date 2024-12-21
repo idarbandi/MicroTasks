@@ -35,6 +35,14 @@
         "documentation": {}
     },
     {
+        "label": "Todo",
+        "importPath": "model",
+        "description": "model",
+        "isExtraImport": true,
+        "detail": "model",
+        "documentation": {}
+    },
+    {
         "label": "motor_asynci",
         "importPath": "motor",
         "description": "motor",
@@ -108,11 +116,27 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "CORSMiddleware",
         "importPath": "fastapi.middleware.cors",
         "description": "fastapi.middleware.cors",
         "isExtraImport": true,
         "detail": "fastapi.middleware.cors",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
         "documentation": {}
     },
     {
@@ -227,7 +251,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}\n@app.get(\"/api/todo\")\nasync def get_todo():\n    return 1\n@app.get(\"/api/todo{id}\")\nasync def get_todo_by_id(id):\n    return 1\n@app.post(\"/api/todo/\")\nasync def post_todo():",
+        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}\n@app.get(\"/api/todo\")\nasync def get_todo():\n    response = await fetch_all_todos()\n    return response\n@app.get(\"/api/todo{id}\", response_model=Todo)\nasync def get_todo_by_id(title):\n    response = fetch_one_todo(title)\n    if response:",
         "detail": "main",
         "documentation": {}
     },
@@ -236,7 +260,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI()\nfrom database import (\n    fetch_one_todo,\n    fetch_all_todos,\n    create_todo,\n    update_todo,\n    remove_todo,\n)\norigins = [\"https://localhost:3000\"]\napp.add_middleware(",
+        "peekOfCode": "app = FastAPI()\nfrom database import (\n    fetch_one_todo,\n    fetch_all_todos,\n    create_todo,\n    update_todo,\n    remove_todo,\n)\nfrom models import Todo\norigins = [\"https://localhost:3000\"]",
         "detail": "main",
         "documentation": {}
     },
