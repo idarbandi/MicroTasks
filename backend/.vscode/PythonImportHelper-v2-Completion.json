@@ -27,27 +27,69 @@
         "documentation": {}
     },
     {
-        "label": "Todo",
-        "importPath": "model",
-        "description": "model",
+        "label": "fastapi",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "model",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
         "documentation": {}
     },
     {
         "label": "Todo",
-        "importPath": "model",
-        "description": "model",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "model",
+        "detail": "models",
         "documentation": {}
     },
     {
-        "label": "motor_asynci",
-        "importPath": "motor",
-        "description": "motor",
+        "label": "Todo",
+        "importPath": "models",
+        "description": "models",
         "isExtraImport": true,
-        "detail": "motor",
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "motor.motor_asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "motor.motor_asyncio",
+        "description": "motor.motor_asyncio",
+        "detail": "motor.motor_asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "CORSMiddleware",
+        "importPath": "fastapi.middleware.cors",
+        "description": "fastapi.middleware.cors",
+        "isExtraImport": true,
+        "detail": "fastapi.middleware.cors",
         "documentation": {}
     },
     {
@@ -56,14 +98,6 @@
         "isExtraImport": true,
         "importPath": "database",
         "description": "database",
-        "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "collection",
-        "importPath": "database",
-        "description": "database",
-        "isExtraImport": true,
         "detail": "database",
         "documentation": {}
     },
@@ -105,38 +139,6 @@
         "description": "database",
         "isExtraImport": true,
         "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "FastAPI",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "HTTPException",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
-        "label": "CORSMiddleware",
-        "importPath": "fastapi.middleware.cors",
-        "description": "fastapi.middleware.cors",
-        "isExtraImport": true,
-        "detail": "fastapi.middleware.cors",
-        "documentation": {}
-    },
-    {
-        "label": "Todo",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
         "documentation": {}
     },
     {
@@ -224,7 +226,7 @@
         "kind": 5,
         "importPath": "database",
         "description": "database",
-        "peekOfCode": "client = motor_asyncio.AsyncIOMotorClient(\"mongodb://localhost:27017/\")\ndatabase = client.TodoList\ncollection = database.todo\nawait def fetch_one_todo(title):\n    document = await.collection.find_one({'title': title})\nawait def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))",
+        "peekOfCode": "client = motor.motor_asyncio.AsyncIOMotorClient(\"mongodb://localhost:27017/\")\ndatabase = client.TodoList\ncollection = database.todo\nasync def fetch_one_todo(title):\n    document = await collection.find_one({\"title\": title})\n    return document\nasync def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:",
         "detail": "database",
         "documentation": {}
     },
@@ -233,7 +235,7 @@
         "kind": 5,
         "importPath": "database",
         "description": "database",
-        "peekOfCode": "database = client.TodoList\ncollection = database.todo\nawait def fetch_one_todo(title):\n    document = await.collection.find_one({'title': title})\nawait def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))\n    return todos",
+        "peekOfCode": "database = client.TodoList\ncollection = database.todo\nasync def fetch_one_todo(title):\n    document = await collection.find_one({\"title\": title})\n    return document\nasync def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))",
         "detail": "database",
         "documentation": {}
     },
@@ -242,7 +244,7 @@
         "kind": 5,
         "importPath": "database",
         "description": "database",
-        "peekOfCode": "collection = database.todo\nawait def fetch_one_todo(title):\n    document = await.collection.find_one({'title': title})\nawait def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))\n    return todos\nasync def create_todo(todo):",
+        "peekOfCode": "collection = database.todo\nasync def fetch_one_todo(title):\n    document = await collection.find_one({\"title\": title})\n    return document\nasync def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))\n    return todos",
         "detail": "database",
         "documentation": {}
     },
@@ -251,7 +253,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}\n@app.get(\"/api/todo\")\nasync def get_todo():\n    response = await fetch_all_todos()\n    return response\n@app.get(\"/api/todo{id}\", response_model=Todo)\nasync def get_todo_by_id(title):\n    response = fetch_one_todo(title)\n    if response:",
+        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}\n@app.get(\"/api/todo\")\nasync def get_todo():\n    response = await fetch_all_todos()\n    return response\n@app.get(\"/api/todo{id}\", response_model=Todo)\nasync def get_todo_by_id(title):\n    response = await fetch_one_todo(title)\n    if response:",
         "detail": "main",
         "documentation": {}
     },

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from model import Todo
+from models import Todo
 import database
 
 
@@ -41,7 +41,7 @@ async def get_todo():
 
 @app.get("/api/todo{id}", response_model=Todo)
 async def get_todo_by_id(title):
-    response = fetch_one_todo(title)
+    response = await fetch_one_todo(title)
     if response:
         return response
     raise HTTPException(404, "Todo list With The Given Title Was Not Found")
@@ -65,7 +65,7 @@ async def put_todo(id: str, desc: str):
 
 @app.delete("/api/todo{id}")
 async def delete_todo(id):
-    response = await remove_todo(title)
+    response = await remove_todo(id)
     if response:
         return "Successfully Deleted Item"
     raise HTTPException(404, f"Theres No Title With The Givven Title {id}")
