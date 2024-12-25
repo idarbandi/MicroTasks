@@ -1,4 +1,4 @@
-"""
+/**
 *********************************************************************
 *                                                                   *
 *                         🗒️ MicroTasks                             *
@@ -11,17 +11,33 @@
 *     گیت‌هاب: https://github.com/idarbandi                         *
 *                                                                   *
 *********************************************************************
-"""
+*/
 
-from pydantic import BaseModel
+/* استایل‌های TodoItem */
+.todo-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-class Todo(BaseModel):
-    """
-    کلاس مدل Todo برای نمایندگی وظایف در برنامه
+.todo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-    ویژگی‌ها:
-        - title: عنوان وظیفه
-        - description: توضیحات وظیفه
-    """
-    title: str
-    description: str
+.todo-text {
+    font-size: 18px;
+    color: #333;
+}
+
+.delete-btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #dc3545;
+    transform: scale(1.1);
+}

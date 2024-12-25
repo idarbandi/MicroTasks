@@ -1,4 +1,4 @@
-"""
+/**
 *********************************************************************
 *                                                                   *
 *                         🗒️ MicroTasks                             *
@@ -11,17 +11,37 @@
 *     گیت‌هاب: https://github.com/idarbandi                         *
 *                                                                   *
 *********************************************************************
-"""
+*/
 
-from pydantic import BaseModel
+/* استایل‌های TodoListView */
+.todo-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8b195, #f67280, #c06c84);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-class Todo(BaseModel):
-    """
-    کلاس مدل Todo برای نمایندگی وظایف در برنامه
+.todo-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
 
-    ویژگی‌ها:
-        - title: عنوان وظیفه
-        - description: توضیحات وظیفه
-    """
-    title: str
-    description: str
+.todo-list li {
+    margin-bottom: 15px;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

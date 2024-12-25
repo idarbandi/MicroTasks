@@ -1,0 +1,110 @@
+/**
+*********************************************************************
+*                                                                   *
+*                         🗒️ MicroTasks                             *
+*                                                                   *
+*        یک برنامه لیست کارهای ساده و موثر که با فست‌API و           *
+*            جاوااسکریپت خالص ساخته شده است 📋🚀                    *
+*                                                                   *
+*     تولید کننده: idarbandi                                        *
+*     ایمیل: darbandidr99@gmail.com                                 *
+*     گیت‌هاب: https://github.com/idarbandi                         *
+*                                                                   *
+*********************************************************************
+*/
+
+/* استایل‌های کلی برنامه */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-header {
+  background: #003366;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.tech-icons img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo-manager, .todo-list-container {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  text-align: center;
+}
+
+.task-manager-header, .stack-info, .add-task-header, .your-tasks-header {
+  text-align: center;
+}
+
+.add-task-header {
+  color: #333;
+}
+
+.task-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn.custom-save-btn {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn.custom-save-btn:hover {
+  background-color: #218838;
+  transform: scale(1.1);
+}
+
+.app-footer {
+  background: #003366;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.app-footer p {
+  margin: 0;
+  color: #ffffff;
+}

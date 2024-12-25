@@ -1,17 +1,17 @@
 /**
-*********************************************************************
-*                                                                   *
-*                         🗒️ MicroTasks                             *
-*                                                                   *
-*        یک برنامه لیست کارهای ساده و موثر که با فست‌API و           *
-*            جاوااسکریپت خالص ساخته شده است 📋🚀                    *
-*                                                                   *
-*     تولید کننده: idarbandi                                        *
-*     ایمیل: darbandidr99@gmail.com                                 *
-*     گیت‌هاب: https://github.com/idarbandi                         *
-*                                                                   *
-*********************************************************************
-*/
+ *********************************************************************
+ *                                                                   *
+ *                         🗒️ MicroTasks                             *
+ *                                                                   *
+ *        یک برنامه لیست کارهای ساده و موثر که با فست‌API و           *
+ *            جاوااسکریپت خالص ساخته شده است 📋🚀                    *
+ *                                                                   *
+ *     تولید کننده: idarbandi                                        *
+ *     ایمیل: darbandidr99@gmail.com                                 *
+ *     گیت‌هاب: https://github.com/idarbandi                         *
+ *                                                                   *
+ *********************************************************************
+ */
 
 import './App.css';
 import { useState, useEffect } from 'react';
@@ -67,34 +67,34 @@ function MainApp() {
         <h1>MicroTasks</h1>
         <div className="tech-icons">
           <img src="mongo_icon.png" alt="MongoDB" />
-          <img src="fastapi_icon.png" alt="FastAPI" />
+          <img src="frontend/fastapi_icon.png" alt="FastAPI" />
           <img src="react_icon.png" alt="React" />
         </div>
       </header>
       <main>
         <div className="todo-manager">
-          <h1 className='task-manager-header'>Task Manager</h1>
-          <h6 className='stack-info'>FASTAPI - React - MongoDB</h6>
-          <div className='card-body'></div>
-          <h5 className='add-task-header'>Add Your Task Below</h5>
-          <span className='task-inputs'>
-            <input 
-              className='mb-2 form-control' 
-              onChange={event => setTitle(event.target.value)}
-              placeholder='Title' 
+          <h1 className="task-manager-header">Task Manager</h1>
+          <h6 className="stack-info">FASTAPI - React - MongoDB</h6>
+          <div className="card-body"></div>
+          <h5 className="add-task-header">Add Your Task Below</h5>
+          <span className="task-inputs">
+            <input
+              className="mb-2 form-control"
+              onChange={(event) => setTitle(event.target.value)}
+              placeholder="Title"
             />
-            <input 
-              className='mb-2 form-control' 
-              onChange={event => setDesc(event.target.value)}
-              placeholder='Description' 
+            <input
+              className="mb-2 form-control"
+              onChange={(event) => setDesc(event.target.value)}
+              placeholder="Description"
             />
             <button className="btn custom-save-btn" onClick={addTask}>
               Save Task
             </button>
           </span>
         </div>
-        <div className='todo-list-container mt-5'>
-          <h5 className='your-tasks-header'>Your Tasks</h5>
+        <div className="todo-list-container mt-5">
+          <h5 className="your-tasks-header">Your Tasks</h5>
           <TodoListView todoList={todoList} />
         </div>
       </main>

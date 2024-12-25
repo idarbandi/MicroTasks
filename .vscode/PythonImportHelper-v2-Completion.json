@@ -68,12 +68,68 @@
         "documentation": {}
     },
     {
-        "label": "fastapi",
+        "label": "motor.motor_asyncio",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "detail": "fastapi",
+        "importPath": "motor.motor_asyncio",
+        "description": "motor.motor_asyncio",
+        "detail": "motor.motor_asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Todo",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "add_new_todo",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "delete_todo_by_title",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_todos",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "get_todo_by_title",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "update_todo_description",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
         "documentation": {}
     },
     {
@@ -93,93 +149,11 @@
         "documentation": {}
     },
     {
-        "label": "Todo",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "Todo",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "Todo",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "motor.motor_asyncio",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "motor.motor_asyncio",
-        "description": "motor.motor_asyncio",
-        "detail": "motor.motor_asyncio",
-        "documentation": {}
-    },
-    {
         "label": "CORSMiddleware",
         "importPath": "fastapi.middleware.cors",
         "description": "fastapi.middleware.cors",
         "isExtraImport": true,
         "detail": "fastapi.middleware.cors",
-        "documentation": {}
-    },
-    {
-        "label": "database",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "database",
-        "description": "database",
-        "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "fetch_one_todo",
-        "importPath": "database",
-        "description": "database",
-        "isExtraImport": true,
-        "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "fetch_all_todos",
-        "importPath": "database",
-        "description": "database",
-        "isExtraImport": true,
-        "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "create_todo",
-        "importPath": "database",
-        "description": "database",
-        "isExtraImport": true,
-        "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "update_todo",
-        "importPath": "database",
-        "description": "database",
-        "isExtraImport": true,
-        "detail": "database",
-        "documentation": {}
-    },
-    {
-        "label": "remove_todo",
-        "importPath": "database",
-        "description": "database",
-        "isExtraImport": true,
-        "detail": "database",
         "documentation": {}
     },
     {
@@ -438,7 +412,7 @@
         "kind": 5,
         "importPath": "backend.database",
         "description": "backend.database",
-        "peekOfCode": "client = motor.motor_asyncio.AsyncIOMotorClient(\"mongodb://localhost:27017/\")\ndatabase = client.TodoList\ncollection = database.todo\nasync def fetch_one_todo(title):\n    document = await collection.find_one({\"title\": title})\n    return document\nasync def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:",
+        "peekOfCode": "client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://localhost:27017')\n# ایجاد پایگاه داده\ndatabase = client.TodoList\ncollection = database.todo\nasync def get_todo_by_title(title: str):\n    \"\"\"\n    دریافت یک وظیفه با استفاده از عنوان\n    :param title: عنوان وظیفه\n    :return: سند وظیفه\n    \"\"\"",
         "detail": "backend.database",
         "documentation": {}
     },
@@ -447,7 +421,7 @@
         "kind": 5,
         "importPath": "backend.database",
         "description": "backend.database",
-        "peekOfCode": "database = client.TodoList\ncollection = database.todo\nasync def fetch_one_todo(title):\n    document = await collection.find_one({\"title\": title})\n    return document\nasync def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))",
+        "peekOfCode": "database = client.TodoList\ncollection = database.todo\nasync def get_todo_by_title(title: str):\n    \"\"\"\n    دریافت یک وظیفه با استفاده از عنوان\n    :param title: عنوان وظیفه\n    :return: سند وظیفه\n    \"\"\"\n    document = await collection.find_one({'title': title})\n    return document",
         "detail": "backend.database",
         "documentation": {}
     },
@@ -456,16 +430,16 @@
         "kind": 5,
         "importPath": "backend.database",
         "description": "backend.database",
-        "peekOfCode": "collection = database.todo\nasync def fetch_one_todo(title):\n    document = await collection.find_one({\"title\": title})\n    return document\nasync def fetch_all_todos():\n    todos = []\n    cursor = collection.find({})\n    async for doc in cursor:\n        todos.append(Todo(**doc))\n    return todos",
+        "peekOfCode": "collection = database.todo\nasync def get_todo_by_title(title: str):\n    \"\"\"\n    دریافت یک وظیفه با استفاده از عنوان\n    :param title: عنوان وظیفه\n    :return: سند وظیفه\n    \"\"\"\n    document = await collection.find_one({'title': title})\n    return document\nasync def get_all_todos():",
         "detail": "backend.database",
         "documentation": {}
     },
     {
-        "label": "pong",
+        "label": "read_root",
         "kind": 2,
         "importPath": "backend.main",
         "description": "backend.main",
-        "peekOfCode": "def pong():\n    return {\"ping\": \"pong\"}\n@app.get(\"/api/todo\")\nasync def get_todo():\n    response = await fetch_all_todos()\n    return response\n@app.get(\"/api/todo{id}\", response_model=Todo)\nasync def get_todo_by_id(title):\n    response = await fetch_one_todo(title)\n    if response:",
+        "peekOfCode": "def read_root():\n    \"\"\"\n    مسیری برای تست پاسخگویی سرور\n    \"\"\"\n    return {'Hello world'}\n# مسیر‌ها\n@app.get('/api/todo')\nasync def get_todo():\n    \"\"\"\n    دریافت همه وظایف",
         "detail": "backend.main",
         "documentation": {}
     },
@@ -474,7 +448,7 @@
         "kind": 5,
         "importPath": "backend.main",
         "description": "backend.main",
-        "peekOfCode": "app = FastAPI()\nfrom database import (\n    fetch_one_todo,\n    fetch_all_todos,\n    create_todo,\n    update_todo,\n    remove_todo,\n)\nfrom models import Todo\norigins = [\"https://localhost:3000\"]",
+        "peekOfCode": "app = FastAPI()\n# مبدا‌های مجاز\norigins = ['http://localhost:3000']\n# افزودن میان‌افزار CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"POST\", \"GET\", \"DELETE\", \"PUT\"],\n    allow_headers=[\"*\"],",
         "detail": "backend.main",
         "documentation": {}
     },
@@ -483,7 +457,7 @@
         "kind": 5,
         "importPath": "backend.main",
         "description": "backend.main",
-        "peekOfCode": "origins = [\"https://localhost:3000\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n@app.get(\"/\")\ndef pong():",
+        "peekOfCode": "origins = ['http://localhost:3000']\n# افزودن میان‌افزار CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"POST\", \"GET\", \"DELETE\", \"PUT\"],\n    allow_headers=[\"*\"],\n    max_age=3600,\n)",
         "detail": "backend.main",
         "documentation": {}
     },
@@ -492,7 +466,7 @@
         "kind": 6,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "class Todo(BaseModel):\n    title: str\n    description: str",
+        "peekOfCode": "class Todo(BaseModel):\n    \"\"\"\n    کلاس مدل Todo برای نمایندگی وظایف در برنامه\n    ویژگی‌ها:\n        - title: عنوان وظیفه\n        - description: توضیحات وظیفه\n    \"\"\"\n    title: str\n    description: str",
         "detail": "backend.models",
         "documentation": {}
     },
