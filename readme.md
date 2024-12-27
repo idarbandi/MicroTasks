@@ -1,131 +1,134 @@
 # 🗒️ MicroTasks
 
-**MicroTasks** یک برنامه لیست کارهای ساده و موثر که با **FastAPI** و **React** ساخته شده است 📋🚀
+**MicroTasks** is a simple yet effective task management application built with **FastAPI** and **React** 📋🚀
 
-## تولید کننده
-این پروژه توسط `idarbandi` توسعه داده شده است.
+## Creator
+This project is developed by `idarbandi`.
 
-- **ایمیل**: [darbandidr99@gmail.com](mailto:darbandidr99@gmail.com)
-- **گیت‌هاب**: [idarbandi](https://github.com/idarbandi)
-
----
-
-## 🛠️ ویژگی‌ها
-
-- مدیریت کارها با امکان افزودن، حذف و نمایش لیست کارها
-- رابط کاربری ساده و زیبا با استفاده از React
-- پشتیبانی از تمام HTTP متدها با استفاده از FastAPI
-- کانفیگ CORS برای دسترسی امن از همه‌ی منابع
+- **Email**: [darbandidr99@gmail.com](mailto:darbandidr99@gmail.com)
+- **GitHub**: [idarbandi](https://github.com/idarbandi)
 
 ---
 
-## 🚀 شروع کار
+## 🛠️ Features
 
-این راهنما به شما کمک می‌کند تا پروژه را به صورت محلی روی سیستم خود راه‌اندازی کنید.
+- Manage tasks with the ability to add, delete, and view tasks
+- Simple and elegant user interface with React
+- Support for all HTTP methods using FastAPI
+- CORS configuration for secure access from all origins
 
-### پیش‌نیازها
+---
 
-- **Docker** و **Docker Compose**
-- **Node.js** (اگر Docker استفاده نمی‌کنید)
+## 🚀 Getting Started
+
+This guide will help you get the project up and running on your local machine.
+
+### Prerequisites
+
+- **Docker** and **Docker Compose**
+- **Node.js** (if not using Docker)
 - **Python 3.x**
 
-### نصب
+### Installation
 
-1. **کلون کردن مخزن**
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/idarbandi/MicroTasks.git
    cd MicroTasks
-راه‌اندازی با Docker
+Start with Docker
 
 bash
 docker-compose up --build
-نصب بدون Docker
-نصب وابستگی‌ها برای Backend
+Installation without Docker
+Install dependencies for Backend
 
 bash
 cd backend
 python -m venv env
-source env/bin/activate  # در ویندوز: .\env\Scripts\activate
+source env/bin/activate  # On Windows: .\env\Scripts\activate
 pip install -r requirements.txt
-اجرا کردن Backend
+Run Backend
 
 bash
 uvicorn main:app --reload
-نصب وابستگی‌ها برای Frontend
+Install dependencies for Frontend
 
 bash
 cd ../frontend
 npm install
-اجرا کردن Frontend
+Run Frontend
 
 bash
 npm start
-📄 استفاده
-افزودن وظیفه
+📄 Usage
+Add a task
 
-به /api/todo درخواست POST ارسال کنید با بدنه‌ای به صورت زیر:
+Send a POST request to /api/todo with the following body:
 
 json
 {
-  "title": "عنوان وظیفه",
-  "description": "توضیحات وظیفه"
+  "title": "Task Title",
+  "description": "Task Description"
 }
-حذف وظیفه
+Delete a task
 
-به /api/todo/{title} درخواست DELETE ارسال کنید.
+Send a DELETE request to /api/todo/{title}.
 
-نمایش لیست وظایف
+View task list
 
-به /api/todo درخواست GET ارسال کنید.
+Send a GET request to /api/todo.
 
 🐳 Docker Configuration
-Dockerfile برای Backend
+Dockerfile for Backend
 Dockerfile
-# استفاده از یک تصویر رسمی پایتون به عنوان تصویر اصلی
+# Use an official Python runtime as a parent image
 FROM python:3.11-slim
 
-# تنظیم دایرکتوری کاری
+# Set the working directory
 WORKDIR /app
 
-# کپی کردن فایل‌های نیازمندی‌ها
+# Copy the requirements file into the container
 COPY requirements.txt .
 
-# نصب وابستگی‌ها
+# Install any dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# کپی کردن کدهای برنامه
+# Copy the rest of the application code
 COPY . .
 
-# پورت مورد نیاز
+# Make port 80 available to the world outside this container
 EXPOSE 80
 
-# اجرای برنامه
+# Run the FastAPI server
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
-Dockerfile برای Frontend
+Dockerfile for Frontend
 Dockerfile
-# استفاده از نود به عنوان تصویر اصلی
+# Use an official Node runtime as a parent image
 FROM node:16-alpine
 
-# تنظیم دایرکتوری کاری
+# Set the working directory
 WORKDIR /app
 
-# کپی کردن فایل‌های نیازمندی‌ها
+# Copy the package.json and package-lock.json
 COPY package*.json ./
 
-# نصب وابستگی‌ها
+# Install dependencies
 RUN npm install
 
-# کپی کردن بقیه کدهای برنامه
+# Copy the rest of the application code
 COPY . .
 
-# ساخت برنامه
+# Build the app for production
 RUN npm run build
 
-# پورت مورد نیاز
+# Install serve to serve the build files
+RUN npm install -g serve
+
+# Make port 3000 available to the world outside this container
 EXPOSE 3000
 
-# اجرای برنامه
+# Serve the app
 CMD ["serve", "-s", "build"]
 Docker Compose Configuration
 yaml
@@ -151,16 +154,16 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     command: serve -s build
-📃 مجوز
-این پروژه تحت مجوز MIT منتشر شده است. برای اطلاعات بیشتر، فایل LICENSE را مشاهده کنید.
+📃 License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-🤝 همکاری
-در صورتی که تمایل دارید در توسعه این پروژه شرکت کنید، خوشحال می‌شویم که درخواست‌های تغییر (Pull Requests) شما را دریافت کنیم. همچنین می‌توانید هر گونه مشکل یا پیشنهاد را از طریق Issues مطرح کنید.
+🤝 Contributing
+We welcome contributions to this project. If you would like to contribute, please fork the repository and make a pull request. You can also report any issues or suggest improvements through the Issues page.
 
-📞 تماس
-برای هر گونه سوال یا توضیحات بیشتر، لطفاً با ایمیل darbandidr99@gmail.com در ارتباط باشید.
+📞 Contact
+For any questions or further information, please contact me at darbandidr99@gmail.com.
 
-📦 وابستگی‌ها
+📦 Dependencies
 FastAPI
 
 Uvicorn
@@ -172,6 +175,3 @@ Axios
 Docker
 
 Docker Compose
-
-
-You can copy and paste this `README.md` into your project. If you need any further assistance or have more questions, feel free to let me know! 🚀😊
