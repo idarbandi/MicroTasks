@@ -27,12 +27,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
  */
 function MainApp() {
   // متغیرهای ذخیره‌سازی لیست وظایف، عنوان و توضیحات
+  let paramsString ;
+  let searchParams = new URLSearchParams(paramsString);
   const [todoList, setTodoList] = useState([]);
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
 
   // useEffect برای دریافت همه وظایف
   useEffect(() => {
+    window.location.pathname.startsWith('http://localhost:3000/edit') ? paramsString = window.location.pathname : null
     fetchTodos();
   }, []);
 

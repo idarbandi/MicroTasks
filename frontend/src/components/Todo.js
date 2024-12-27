@@ -8,13 +8,25 @@ function TodoItem(props) {
 
   return (
     <div className="todo-item mx-auto">
-      <p className="todo-text">
+      <div className="todo-text">
         <span>{props.todo.title}:</span>
-        {props.todo.description}
-        <button onClick={() => zapTodo(props.todo.title)} className="btn btn-outline-danger my-2 mx-2 delete-btn">
-          Delete
-        </button>
-      </p>
+        <span id="toDodesc">{props.todo.description}:</span>
+        <div className="container mt-5">
+          {' '}
+          <div id="buttonContainer">
+            <button
+              id="transformButton"
+              className="btn btn-outline-success my-2 mx-2 delete-btn"
+              onClick={(e) => (window.location += 'edit=' + props.todo.title)}
+            >
+              Edit
+            </button>
+            <button onClick={() => zapTodo(props.todo.title)} className="btn btn-outline-danger my-2 mx-2 delete-btn">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

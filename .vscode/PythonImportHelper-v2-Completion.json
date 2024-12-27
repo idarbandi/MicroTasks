@@ -448,7 +448,7 @@
         "kind": 5,
         "importPath": "backend.main",
         "description": "backend.main",
-        "peekOfCode": "app = FastAPI()\n# مبدا‌های مجاز\norigins = ['http://localhost:3000']\n# افزودن میان‌افزار CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"POST\", \"GET\", \"DELETE\", \"PUT\"],\n    allow_headers=[\"*\"],",
+        "peekOfCode": "app = FastAPI()\n# مبدا‌های مجاز\norigins = ['http://localhost:3000']\n# افزودن میان‌افزار CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"GET\", \"POST\", \"PUT\", \"DELETE\", \"PATCH\", \"OPTIONS\", \"HEAD\"],\n    allow_headers=[ \"Content-Type\", \"Authorization\", \"X-Requested-With\", \"Accept\", \"Origin\", \"User-Agent\", \"Access-Control-Allow-Origin\", \"Access-Control-Allow-Credentials\", \"Access-Control-Allow-Methods\", \"Access-Control-Allow-Headers\" ], expose_headers=[ \"Content-Length\", \"Content-Encoding\", \"Content-Type\", \"Authorization\", \"X-Requested-With\", \"Accept\", \"Origin\", \"User-Agent\", \"Access-Control-Allow-Origin\", \"Access-Control-Allow-Credentials\", \"Access-Control-Allow-Methods\", \"Access-Control-Allow-Headers\" ],",
         "detail": "backend.main",
         "documentation": {}
     },
@@ -457,7 +457,7 @@
         "kind": 5,
         "importPath": "backend.main",
         "description": "backend.main",
-        "peekOfCode": "origins = ['http://localhost:3000']\n# افزودن میان‌افزار CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"POST\", \"GET\", \"DELETE\", \"PUT\"],\n    allow_headers=[\"*\"],\n    max_age=3600,\n)",
+        "peekOfCode": "origins = ['http://localhost:3000']\n# افزودن میان‌افزار CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"GET\", \"POST\", \"PUT\", \"DELETE\", \"PATCH\", \"OPTIONS\", \"HEAD\"],\n    allow_headers=[ \"Content-Type\", \"Authorization\", \"X-Requested-With\", \"Accept\", \"Origin\", \"User-Agent\", \"Access-Control-Allow-Origin\", \"Access-Control-Allow-Credentials\", \"Access-Control-Allow-Methods\", \"Access-Control-Allow-Headers\" ], expose_headers=[ \"Content-Length\", \"Content-Encoding\", \"Content-Type\", \"Authorization\", \"X-Requested-With\", \"Accept\", \"Origin\", \"User-Agent\", \"Access-Control-Allow-Origin\", \"Access-Control-Allow-Credentials\", \"Access-Control-Allow-Methods\", \"Access-Control-Allow-Headers\" ],\n    max_age=3600,\n)",
         "detail": "backend.main",
         "documentation": {}
     },
