@@ -1,6 +1,6 @@
 # 🗒️ MicroTasks
 
-**MicroTasks** is a simple yet effective task management application built with **FastAPI** and **React** 📋🚀
+**MicroTasks** is a simple yet effective task management application built with **FastAPI** and **React** and **MongoDB** 📋🚀
 
 ## Creator
 This project is developed by `idarbandi`.
